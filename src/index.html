@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ==== All meta ==== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Chatroom By Javascript And Firebase">
+  <meta name="author" content="Ahmed Kamal">
+  <!-- ==== Title ==== -->
+  <title>Chatroom</title>
+  <!-- ==== Links ==== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="css/app.min.css">
+</head>
+
+<body>
+
+  <main id="layout">
+    <div class="wrapper flex">
+      <!-- ==== Intro ==== -->
+      <div class="intro">
+        <div class="intro-content">
+          <div class="wrapper">
+            <!-- Intro > Intro Text -->
+            <section class="intro-text">
+              <h1 class="intro-title">chatroom</h1>
+              <h2 class="intro-para">by javascript & <br> firebase :)</h2>
+            </section>
+            <!-- Intro > Add Username -->
+            <form class="add-username">
+              <div>
+                <input type="text" name="username">
+                <label>enter your username (optional)</label>
+              </div>
+              <input type="submit" name="submit" value="ok">
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- End Intro -->
+
+      <!-- ==== chat ==== -->
+      <div class="chat">
+        <div class="wrapper">
+          <!-- Chat > Header -->
+          <header class="header">
+            <!-- Header > Choose Room -->
+            <section class="choose-room">
+              <h2 class="title">choose a chatroom</h2>
+              <div class="choose-box">
+                <i class="fab fa-rocketchat"></i>
+              </div>
+            </section>
+            <!-- Header > Room Type -->
+            <div class="room-type">
+              <p class="para">you are now in the <span id="room-new-name">public</span> room</p>
+            </div>
+          </header>
+          <!-- Chat > Messages -->
+          <ul class="messages"></ul>
+          <!-- Chat > Add Message -->
+          <form class="add-messg">
+            <div>
+              <input class="box-shadow" type="text" name="message" id="message" placeholder="Enter your message ...">
+              <i class="fas fa-paper-plane send"></i>
+            </div>
+          </form>
+        </div>
+        <!-- Chat > rooms-menu -->
+        <div class="rooms-menu">
+          <div class="wrapper">
+            <header class="room-header">
+              <h3 class="title">chat rooms</h3>
+              <i class="fas fa-times"></i>
+            </header>
+            <ul class="room-list">
+              <li id="public">
+                <div class="img-box">
+                  <img src="images/public.jpg" alt="Public Room">
+                </div>
+                <h3 class="title">public</h3>
+                <button id="check">choose</button>
+              </li>
+              <li id="programming">
+                <div class="img-box">
+                  <img src="images/programming.jpg" alt="Programming Room">
+                </div>
+                <h3 class="title">programming</h3>
+                <button id="check">choose</button>
+              </li>
+              <li id="design">
+                <div class="img-box">
+                  <img src="images/design.jpg" alt="Public Room">
+                </div>
+                <h3 class="title">design</h3>
+                <button id="check">choose</button>
+              </li>
+              <li id="help">
+                <div class="img-box">
+                  <img src="images/help.jpg" alt="Public Room">
+                </div>
+                <h3 class="title">help</h3>
+                <button id="check">choose</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==== Javascript ==== -->
+  <!-- CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+  <!-- External -->
+  <script src="js/init_firebase-min.js"></script>
+  <script src="js/chatroom-min.js"></script>
+  <script src="js/interface-min.js"></script>
+  <script src="js/app-min.js"></script>
+</body>
+
+</html>

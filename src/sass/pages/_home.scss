@@ -1,0 +1,248 @@
+/* ==== Intro ==== */
+.intro {
+  @include relative();
+  height: 100vh;
+  flex-basis: 40%;
+  background-color: #fff;
+  overflow: hidden;
+  // Media
+  @media (max-width: 991px) {
+    flex-basis: auto;
+  }
+  .intro-content {
+    @include absolute($top: 0, $left: 0);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    @extend %flexbox;
+    .intro-text {
+      margin-bottom: $spaceEdit + 55;
+      .intro-title {
+        color: $alt-color;
+        @include font(55px, 500);
+        @extend %text-transform;
+      }
+      .intro-para {
+        color: $primary-color;
+        @include font(50px, 500);
+        @extend %text-transform;
+      }
+    }
+    .add-username {
+      div {
+        @include relative();
+        margin-bottom: $space-beetwen;
+        input {
+          padding: 10px 0;
+          width: 100%;
+          background-color: transparent;
+          border-bottom: 4px solid $alt-third-color;
+          transition-property: border-bottom;
+          color: $alt-third-color;
+          @include font(16px, 400);
+          &:focus {
+            border-bottom: 4px solid $alt-color !important;
+            ~ label {
+              top: -15px;
+              color: $alt-color;
+            }
+          }
+        }
+        label {
+          @include absolute($top: 10px, $left: 0);
+          color: $alt-third-color;
+          transition-property: top;
+          pointer-events: none;
+          @include font(16px, 400);
+          @extend %text-transform;
+        }
+      }
+      input {
+        &[type="submit"] {
+          @include relative;
+          padding: 11px 30px;
+          background-color: $alt-color;
+          color: #fff;
+          cursor: pointer;
+          @extend %text-transform;
+          @include font(16px, 500);
+        }
+      }
+    }
+    // Media
+    @media (max-width: 991px) {
+      position: static;
+      display: block;
+    }
+  }
+  // Media
+  @media (max-width: 991px) {
+    height: auto;
+    padding: 50px;
+  }
+}
+/* End Intro */
+
+/*==== Chat ====*/
+.chat {
+  @include relative;
+  flex-basis: 60%;
+  height: 100vh;
+  padding: 50px;
+  // Media
+  @media (max-width: 991px) {
+    height: auto;
+  }
+  .choose-room {
+    @extend %space-between;
+    .title {
+      margin-bottom: $space-beetwen;
+      color: $primary-color;
+      &::first-letter {
+        @extend %text-transform;
+      }
+      @include font(25px, 500);
+    }
+    .choose-box {
+      padding: 13px;
+      background-color: $alt-color;
+      transition-property: background-color;
+      cursor: pointer;
+      @include borderRadius(50%);
+      i {
+        font-size: 22px;
+        color: #fff;
+      }
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+  }
+  .room-type {
+    .para {
+      color: $primary-gray-color;
+      @include font(20px, 400);
+      > #room-new-name {
+        font-weight: 500;
+        color: $alt-color;
+      }
+      &:first-letter {
+        @extend %text-transform;
+      }
+    }
+  }
+  .messages {
+    height: 342px;
+    margin-top: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .messg-content {
+      @include relative();
+      &:not(:last-child) {
+        margin-bottom: $space-beetwen;
+      }
+      padding: 20px;
+      background-color: #fff;
+      .user {
+        display: flex;
+        align-items: center;
+        .avatar {
+          width: 45px;
+          height: 45px;
+          overflow: hidden;
+          @include borderRadius(50%);
+        }
+        .name {
+          margin-left: $space-beetwen;
+          color: $primary-color;
+          @include font(18px, 500);
+        }
+      }
+      .messg-text {
+        margin: $space-beetwen 0 0 ($spaceEdit + 55);
+        color: $alt-third-color;
+        @include font(16px, 500);
+      }
+      .time {
+        margin: $space-beetwen 0 0 ($spaceEdit + 55);
+        color: $primary-gray-color;
+        @include font(14px, 400);
+      }
+    }
+  }
+  .add-messg {
+    @include absolute($bottom: 0px, $left: 0);
+    width: 100%;
+    padding: 50px;
+    display: inline-block;
+    @media (max-width: 991px) {
+      bottom: auto;
+    }
+    div {
+      @include relative();
+      input {
+        width: 100%;
+        padding: 15px 0;
+        text-indent: 20px;
+        color: $alt-third-color;
+        &::placeholder {
+          color: $primary-gray-color;
+        }
+        @include borderRadius(200px);
+        @include font(16px, 500);
+      }
+      i.send {
+        @include absolute($top: 50%, $right: 20px);
+        transform: translateY(-50%);
+        color: $alt-color;
+      }
+    }
+  }
+  .rooms-menu {
+    @include fixed($top: 0, $left: 0);
+    width: 350px;
+    height: 100%;
+    z-index: 99;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 3px 0px 28px #40407a54;
+    display: none;
+    .room-header {
+      @extend %space-between;
+      margin-bottom: $space-beetwen;
+      padding: 50px 0;
+      .title {
+        color: $alt-third-color;
+        @include font(25px, 500);
+      }
+      i {
+        font-size: 22px;
+        color: $alt-color;
+        @extend %pointer;
+      }
+    }
+    .room-list {
+      li {
+        @extend %space-between;
+        border-bottom: 1px solid $alt-gray-color;
+        padding: 10px 0;
+        background-color: #fff;
+        .title {
+          color: $primary-color;
+          @include font(18px, 500);
+          @extend %text-transform;
+        }
+        #check {
+          padding: 5px 8px;
+          background-color: $alt-color;
+          color: #fff;
+          @include borderRadius(5px);
+          @include font(16px, 400);
+          @extend %text-transform;
+          @extend %pointer;
+        }
+      }
+    }
+  }
+}
+/* ==== End Chat ==== */

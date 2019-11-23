@@ -1,0 +1,14 @@
+/* ==== Global ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+}
+
+body {
+  font-family: $roboto, $cairo;
+  background-color: #f7f7fd;
+}
+/* End Global */

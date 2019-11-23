@@ -1,0 +1,18 @@
+/* ==== 
+** flex Class
+    - displey: flex;
+==== */
+.flex {
+  display: flex;
+  @media (max-width: 991px) {
+    display: block;
+  }
+}
+
+/* ==== 
+** box-shadow Class
+    - box-shadow: 0 3px 8px #ececec;
+==== */
+.box-shadow {
+  box-shadow: 0 3px 8px #ececec;
+}

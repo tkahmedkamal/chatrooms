@@ -1,0 +1,7 @@
+/* ==== Font ==== */
+@mixin font($size, $weight) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+}
