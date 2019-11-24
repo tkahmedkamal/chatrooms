@@ -14,18 +14,24 @@ addMessag.addEventListener("submit", function(event) {
   // Get input value
   const inputValue = this.querySelector("#message").value;
 
-  // Add data to database
-  chat_rooms.addData(inputValue);
+  // Check that the input is not empty
+  if (inputValue === '') {
+      // error message
+  } else {
+    // Add data to database
+    chat_rooms.addData(inputValue);
 
-  // Form reset
-  this.reset();
+    // Form reset
+    this.reset();
 
-  // message box, Scroll down when you add a new message
-  const scrollToDown = () => {
-    messagesList.scrollTop = messagesList.scrollHeight;
-  };
-  setTimeout(() => scrollToDown(), 300);
+    // message box, Scroll down when you add a new message
+    const scrollToDown = () => {
+      messagesList.scrollTop = messagesList.scrollHeight;
+    };
+    setTimeout(() => scrollToDown(), 300);
+  }
 });
+
 
 /* ============================================
                 Updata Username  
@@ -38,8 +44,13 @@ addUsername.addEventListener("submit", function(event) {
 
   // Check the input that contains the username
   if (input.name === "username") {
-    const inputValue = input.value.trim();
-    chat_rooms.updateUsername(inputValue);
+    // Check that the input is not empty
+    if(input.value == '') {
+      // Error message
+    } else {
+      const inputValue = input.value.trim();
+      chat_rooms.updateUsername(inputValue);
+    }
   }
 
   // Form reset
@@ -64,7 +75,13 @@ chooseBox.addEventListener("click", function(e) {
   Hide the roomsMenu containing chat room types 
 ============================================= */
 roomsMenu.addEventListener("click", function(event) {
+  // Close the rooms menu when you press the fa-times
   if (event.target.classList.contains("fa-times")) {
+    this.style.display = "none";
+  }
+
+  // Close the rooms menu when choosing a chat room
+  if(event.target.id === "check") {
     this.style.display = "none";
   }
 });

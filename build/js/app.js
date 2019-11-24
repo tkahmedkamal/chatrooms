@@ -14,19 +14,23 @@ var messagesList = document.getElementsByClassName("messages")[0],
 addMessag.addEventListener("submit", function (event) {
   event.preventDefault(); // Get input value
 
-  var inputValue = this.querySelector("#message").value; // Add data to database
+  var inputValue = this.querySelector("#message").value; // Check that the input is not empty
 
-  chat_rooms.addData(inputValue); // Form reset
+  if (inputValue === '') {// error message
+  } else {
+    // Add data to database
+    chat_rooms.addData(inputValue); // Form reset
 
-  this.reset(); // message box, Scroll down when you add a new message
+    this.reset(); // message box, Scroll down when you add a new message
 
-  var scrollToDown = function scrollToDown() {
-    messagesList.scrollTop = messagesList.scrollHeight;
-  };
+    var scrollToDown = function scrollToDown() {
+      messagesList.scrollTop = messagesList.scrollHeight;
+    };
 
-  setTimeout(function () {
-    return scrollToDown();
-  }, 300);
+    setTimeout(function () {
+      return scrollToDown();
+    }, 300);
+  }
 });
 /* ============================================
                 Updata Username  
@@ -38,8 +42,12 @@ addUsername.addEventListener("submit", function (event) {
   var input = this.querySelector("input"); // Check the input that contains the username
 
   if (input.name === "username") {
-    var inputValue = input.value.trim();
-    chat_rooms.updateUsername(inputValue);
+    // Check that the input is not empty
+    if (input.value == '') {// Error message
+    } else {
+      var inputValue = input.value.trim();
+      chat_rooms.updateUsername(inputValue);
+    }
   } // Form reset
 
 
@@ -62,7 +70,13 @@ chooseBox.addEventListener("click", function (e) {
 ============================================= */
 
 roomsMenu.addEventListener("click", function (event) {
+  // Close the rooms menu when you press the fa-times
   if (event.target.classList.contains("fa-times")) {
+    this.style.display = "none";
+  } // Close the rooms menu when choosing a chat room
+
+
+  if (event.target.id === "check") {
     this.style.display = "none";
   }
 });

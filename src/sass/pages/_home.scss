@@ -24,7 +24,7 @@
       }
       .intro-para {
         color: $primary-color;
-        @include font(50px, 500);
+        @include font(calc(2.53571vw + 18.28571px), 500);
         @extend %text-transform;
       }
     }
@@ -191,10 +191,15 @@
         @include borderRadius(200px);
         @include font(16px, 500);
       }
-      i.send {
+      .submit {
         @include absolute($top: 50%, $right: 20px);
         transform: translateY(-50%);
+        background-color: transparent;
         color: $alt-color;
+        @extend %pointer;
+        i {
+          font-size: 20px;
+        }
       }
     }
   }
